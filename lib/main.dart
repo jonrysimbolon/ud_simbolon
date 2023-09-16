@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ud_simbolon/header_component.dart';
 import 'package:ud_simbolon/utils.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'UD. SIMBOLON',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
+        colorScheme: ColorScheme.fromSeed(seedColor: bgColor),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Home'),
@@ -29,40 +30,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        leading: const IconButton(
+          tooltip: 'Drawer',
+          icon: const Icon(Icons.menu, color: Colors.white),
+          onPressed: () {},
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      body: const Center(
+          child: Text(
+        'Custom Font',
+        style: TextStyle(
+          fontSize: 30,
+        ),
+      )),
     );
   }
 }
