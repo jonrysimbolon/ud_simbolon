@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
     "java.compile.nullAnalysis.mode": "automatic",
     "editor.parameterHints.enabled": false,
+=======
+    "java.compile.nullAnalysis.mode": "automatic"
+>>>>>>> 36ce5a40fe9ec94f885ac5441da4798f2d9d58a1
 }

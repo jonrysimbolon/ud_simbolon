@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ud_simbolon/header_component.dart';
-//import 'package:ud_simbolon/header_component.dart';
 import 'package:ud_simbolon/utils.dart';
 
 void main() {
