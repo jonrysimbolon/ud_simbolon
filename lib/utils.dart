@@ -14,8 +14,13 @@ void showCustomSnackBar(BuildContext context, String message,
   );
 }
 
-void showAlert(String message) {
-  AlertDialog(
-    content: Text(message),
+void showAlert(BuildContext context, String message) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        content: Text(message),
+      );
+    },
   );
 }

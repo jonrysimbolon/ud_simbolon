@@ -65,15 +65,16 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: CircleAvatar(
-              backgroundColor: Colors.white, // Customize the circle color
-              radius: 18, // Adjust the circle size as needed
+              backgroundColor: Colors.white,
+              radius: 18,
               child: IconButton(
                   onPressed: () {
-                    showAlert(_controller.text);
+                    showAlert(context, _controller.text);
+                    //showCustomSnackBar(context, _controller.text);
                   },
                   icon: const Icon(
-                    Icons.search, // Adjust the icon size as needed
-                    color: cardColor, // Customize the icon color
+                    Icons.search,
+                    color: cardColor,
                   )),
             ),
           )
