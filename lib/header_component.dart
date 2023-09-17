@@ -1,35 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:ud_simbolon/utils.dart';
 
-class HeaderComponent extends StatefulWidget {
-  const HeaderComponent({super.key});
+class HeaderComponent extends StatelessWidget {
+  final TextEditingController _controller;
+  final bool _isNotEmpty;
 
-  @override
-  State<HeaderComponent> createState() => _HeaderComponentState();
-}
-
-class _HeaderComponentState extends State<HeaderComponent> {
-  final TextEditingController _controller = TextEditingController();
-
-  bool _isNotEmpty = false;
-
-  @override
-  void initState() {
-    super.initState();
-
-    // Add a listener to the controller to check for text changes
-    _controller.addListener(() {
-      setState(() {
-        _isNotEmpty = _controller.text.isNotEmpty;
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  const HeaderComponent({
+    Key? key,
+    required TextEditingController controller,
+    required bool isNotEmpty,
+  })  : _controller = controller,
+        _isNotEmpty = isNotEmpty,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +21,11 @@ class _HeaderComponentState extends State<HeaderComponent> {
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: Center(
-          child: Padding(
-        padding: const EdgeInsets.only(left: 0, top: 0),
         child: TextField(
           controller: _controller,
+          textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
+            isDense: true,
             suffixIcon: _isNotEmpty
                 ? IconButton(
                     icon: const Icon(Icons.clear),
@@ -56,18 +38,18 @@ class _HeaderComponentState extends State<HeaderComponent> {
             hintStyle: const TextStyle(
               color: textColor,
             ),
-            contentPadding: const EdgeInsets.only(left: 10.0, bottom: 8.0),
+            contentPadding: const EdgeInsets.only(left: 10.0),
             border: InputBorder.none,
           ),
           onSubmitted: (String value) {
-            prosesSearch();
+            prosesSearch(context);
           },
         ),
-      )),
+      ),
     );
   }
 
-  void prosesSearch() {
+  void prosesSearch(BuildContext context) {
     if (_controller.text.isNotEmpty) {
       showCustomSnackBar(context, _controller.text);
     }
