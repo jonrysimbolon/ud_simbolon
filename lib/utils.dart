@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-var bgColor = const Color(0xFF80C764);
-var cardColor = const Color(0xFF72BD55);
-var textColor = const Color(0xFF9F9D9D);
+const bgColor = Color(0xFF80C764);
+const cardColor = Color(0xFF72BD55);
+const textColor = Color(0xFF9F9D9D);
 
 void showCustomSnackBar(BuildContext context, String message,
     {Duration duration = const Duration(seconds: 1)}) {
