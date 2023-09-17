@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ud_simbolon/header_component.dart';
 //import 'package:ud_simbolon/header_component.dart';
 import 'package:ud_simbolon/utils.dart';
 
@@ -30,36 +31,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _searchText = '';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Container(
-            width: double.infinity,
-            height: 40,
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(5)),
-            child: Center(
-              child: TextField(
-                decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.search),
-                    suffixIcon: IconButton(
-                      icon: const Icon(Icons.clear),
-                      onPressed: () {
-                        /* Clear the search field */
-                      },
-                    ),
-                    hintText: 'Search...',
-                    border: InputBorder.none),
-                onChanged: (String value) {
-                  _searchText = value;
-                },
-              ),
-            ),
-          )),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const HeaderComponent(),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          )
+        ],
+      ),
       body: const Center(
           child: Text(
         'Custom Font',
