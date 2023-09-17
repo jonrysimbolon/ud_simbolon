@@ -37,9 +37,18 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const HeaderComponent(),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {},
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: CircleAvatar(
+              backgroundColor: Colors.white, // Customize the circle color
+              radius: 18, // Adjust the circle size as needed
+              child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.search, // Adjust the icon size as needed
+                    color: cardColor, // Customize the icon color
+                  )),
+            ),
           )
         ],
       ),

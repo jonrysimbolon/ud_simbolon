@@ -37,7 +37,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
       width: double.infinity,
       height: 40,
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(5)),
+          color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: Center(
           child: Padding(
         padding: const EdgeInsets.only(left: 0, top: 0),
@@ -52,7 +52,10 @@ class _HeaderComponentState extends State<HeaderComponent> {
                     },
                   )
                 : null,
-            hintText: 'Search...',
+            hintText: 'mau cari apa ?',
+            hintStyle: const TextStyle(
+              color: textColor,
+            ),
             contentPadding: const EdgeInsets.only(left: 10.0, bottom: 8.0),
             border: InputBorder.none,
           ),
