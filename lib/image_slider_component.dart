@@ -27,7 +27,7 @@ class ImageSliderComponent extends StatelessWidget {
         isLoop: true,
         children: _images
             .map((data) => Image.asset(
-                  data,
+                  'images/$data.jpg',
                   fit: BoxFit.cover,
                 ))
             .toList(),

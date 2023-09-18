@@ -8,10 +8,10 @@ class Promo {
 var promos = [
   Promo(
     title: 'Beli 3 buku gratis 1 pulpen',
-    pathImg: 'images/imageslider.jpeg',
+    pathImg: 'images/promo01.jpg',
   ),
   Promo(
-    title: 'Beli 3 buku gratis 1 pulpen',
-    pathImg: 'images/imageslider.jpeg',
+    title: 'Beli 10 buku gratis 2 buku',
+    pathImg: 'images/promo02.jpg',
   ),
 ];
