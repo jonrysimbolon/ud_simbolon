@@ -16,7 +16,7 @@ TextStyle getTextStyle(String textStyle) {
 void showCustomSnackBar(
   BuildContext context,
   String message, {
-  String style = 'Oxygen',
+  String style = 'Staatliches',
   Duration duration = const Duration(seconds: 1),
 }) {
   ScaffoldMessenger.of(context).showSnackBar(
@@ -33,7 +33,7 @@ void showCustomSnackBar(
 void showAlert(
   BuildContext context,
   String message, {
-  String style = 'Oxygen',
+  String style = 'Staatliches',
 }) {
   showDialog(
     context: context,
