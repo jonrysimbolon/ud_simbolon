@@ -4,19 +4,13 @@ const bgColor = Color(0xFF80C764);
 const cardColor = Color(0xFF72BD55);
 const textColor = Color(0xFF9F9D9D);
 
-var descTextStyle =
-    getTextStyle('Oxygen'); // menyimpan font kedalam variable style
-var titleTextStyle =
-    getTextStyle('Staatliches'); // menyimpan font kedalam variable style
-
-TextStyle getTextStyle(String textStyle) {
-  return TextStyle(fontFamily: textStyle);
-}
+const fontTitleStr = 'Staatliches';
+const fontDescStr = 'Oxygen';
 
 void showCustomSnackBar(
   BuildContext context,
   String message, {
-  String style = 'Staatliches',
+  String style = fontTitleStr,
   Duration duration = const Duration(seconds: 1),
 }) {
   ScaffoldMessenger.of(context).showSnackBar(
@@ -33,7 +27,7 @@ void showCustomSnackBar(
 void showAlert(
   BuildContext context,
   String message, {
-  String style = 'Staatliches',
+  String style = fontTitleStr,
 }) {
   showDialog(
     context: context,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:ud_simbolon/header_component.dart';
+import 'package:ud_simbolon/image_slider_component.dart';
 import 'package:ud_simbolon/utils.dart';
+import 'package:ud_simbolon/welcome_component.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,12 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   bool _isNotEmpty = false;
 
-  List<Image> images = [
-    Image.asset('images/imageslider.png'),
-    Image.asset('images/imageslider.png'),
-    Image.asset('images/imageslider.png'),
-    Image.asset('images/imageslider.png'),
-    Image.asset('images/imageslider.png'),
+  List<String> images = [
+    'images/imageslider.jpeg',
+    'images/imageslider2.jpeg',
+    'images/imageslider3.jpeg',
+    'images/imageslider4.jpeg',
+    'images/imageslider5.jpeg',
   ];
 
   @override
@@ -88,20 +89,12 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-        body: Column(children: [
-          Container(
-            color: bgColor,
-            child: ImageSlideshow(
-              width: double.infinity,
-              height: 180,
-              initialPage: 0,
-              indicatorColor: cardColor,
-              indicatorBackgroundColor: textColor,
-              autoPlayInterval: 3000,
-              isLoop: true,
-              children: images,
-            ),
-          ),
-        ]));
+        body: Container(
+          color: bgColor,
+          child: Column(children: [
+            ImageSliderComponent(images: images),
+            const WelcomeComponent(),
+          ]),
+        ));
   }
 }

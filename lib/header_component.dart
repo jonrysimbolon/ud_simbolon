@@ -23,7 +23,9 @@ class HeaderComponent extends StatelessWidget {
       child: Center(
         child: TextField(
           controller: _controller,
-          style: titleTextStyle,
+          style: const TextStyle(
+            fontFamily: fontTitleStr
+          ),
           textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
             isDense: true,
