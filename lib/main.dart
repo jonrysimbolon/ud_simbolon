@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:ud_simbolon/header_component.dart';
 import 'package:ud_simbolon/utils.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
         useMaterial3: true,
       ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Home'),
     );
   }
@@ -33,6 +35,14 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _controller = TextEditingController();
 
   bool _isNotEmpty = false;
+
+  List<Image> images = [
+    Image.asset('images/imageslider.png'),
+    Image.asset('images/imageslider.png'),
+    Image.asset('images/imageslider.png'),
+    Image.asset('images/imageslider.png'),
+    Image.asset('images/imageslider.png'),
+  ];
 
   @override
   void initState() {
@@ -78,14 +88,20 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-        body: Column(
-          children: [
+        body: Column(children: [
           Container(
             color: bgColor,
-            child: const Center(
-              child: Text("hey"),
+            child: ImageSlideshow(
+              width: double.infinity,
+              height: 180,
+              initialPage: 0,
+              indicatorColor: cardColor,
+              indicatorBackgroundColor: textColor,
+              autoPlayInterval: 3000,
+              isLoop: true,
+              children: images,
             ),
-          )
+          ),
         ]));
   }
 }
