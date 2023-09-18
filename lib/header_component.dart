@@ -39,7 +39,8 @@ class HeaderComponent extends StatelessWidget {
                 : null,
             hintText: 'mau cari apa ?',
             hintStyle: const TextStyle(
-              color: textColor,
+              color: labelColor,
+              fontSize: 14
             ),
             contentPadding: const EdgeInsets.only(left: 10.0),
             border: InputBorder.none,

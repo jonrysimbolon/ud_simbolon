@@ -96,6 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ImageSliderComponent(images: images),
             const WelcomeComponent(),
             TitleComponent(title: 'kategory', click: () {}),
+            
             TitleComponent(title: 'promo', click: () {})
           ]),
         ));
