@@ -8,14 +8,18 @@ class PromoComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200, // Adjust the height as needed
+      height: 200,
       child: ListView.builder(
+        padding: const EdgeInsets.all(10),
         scrollDirection: Axis.horizontal,
         itemCount: promos.length,
         itemBuilder: (BuildContext context, int index) {
           final promo = promos[index];
           return itemPromo(
-              promo.title, promo.pathImg, () => {showAlert(context, promo.title)});
+            promo.title,
+            promo.pathImg,
+            () => {showAlert(context, promo.title)},
+          );
         },
       ),
     );
@@ -28,42 +32,41 @@ Widget itemPromo(
   Function() click,
 ) {
   return InkWell(
-    onTap: click,
-    child: Padding(
-      padding: const EdgeInsets.only(left: 10, bottom: 10),
-      child: Container(
-        width: 200,
-        decoration: BoxDecoration(
-          color: cardColor,
-          borderRadius: BorderRadius.circular(10),
-        ),
+      onTap: click,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        color: cardColor,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              ),
-              child: Image.asset(
-                pathImg,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Text(
-                title,
-                style: const TextStyle(
-                  fontFamily: fontTitleStr,
-                  fontSize: 12,
-                  color: Colors.white,
+            Expanded(
+              flex: 3,
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                ),
+                child: Image.asset(
+                  pathImg,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontFamily: fontTitleStr,
+                    fontSize: 12,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            )
           ],
         ),
-      ),
-    ),
-  );
+      ));
 }
