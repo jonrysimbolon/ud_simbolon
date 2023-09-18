@@ -4,44 +4,45 @@ const bgColor = Color(0xFF80C764);
 const cardColor = Color(0xFF72BD55);
 const textColor = Color(0xFF9F9D9D);
 
-const descTextStyle = TextStyle(
-    fontFamily: 'Oxygen'); // menyimpan font kedalam variable style
+var descTextStyle =
+    getTextStyle('Oxygen'); // menyimpan font kedalam variable style
+var titleTextStyle =
+    getTextStyle('Staatliches'); // menyimpan font kedalam variable style
 
-const titleTextStyle = TextStyle(
-    fontFamily: 'Staatliches'); // menyimpan font kedalam variable style
-
+TextStyle getTextStyle(String textStyle) {
+  return TextStyle(fontFamily: textStyle);
+}
 
 void showCustomSnackBar(
-  BuildContext context, 
-  String message,
-  ({TextStyle _style = titleTextStyle}),
-    {Duration duration = const Duration(seconds: 1)}
-    ) {
+  BuildContext context,
+  String message, {
+  String style = 'Oxygen',
+  Duration duration = const Duration(seconds: 1),
+}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Text(
         message,
-        style: _style,
-        ),
+        style: const TextStyle(fontFamily: 'Oxygen'),
+      ),
       duration: duration,
     ),
   );
 }
 
 void showAlert(
-  BuildContext context, 
-  String message,
-  ({TextStyle _style = titleTextStyle}),
-  ) {
+  BuildContext context,
+  String message, {
+  String style = 'Oxygen',
+}) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        content: 
-        Text(
+        content: Text(
           message,
-          style: _style,
-          ),
+          style: TextStyle(fontFamily: style),
+        ),
       );
     },
   );
