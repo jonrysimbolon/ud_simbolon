@@ -173,6 +173,9 @@ class _WebHomePage extends State<WebHomePage> {
           child: Column(children: [
             Row(
               children: [
+                const SizedBox(
+                  width: 20,
+                ),
                 Expanded(
                     child: ImageSliderComponent(
                         images: items.map((item) => item.id).toList())),
