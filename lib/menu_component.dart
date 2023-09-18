@@ -39,7 +39,8 @@ Widget itemMenu(
               color: cardColor, borderRadius: BorderRadius.circular(10)),
           child: IconButton(
               onPressed: click,
-              iconSize: constraints.maxHeight / 4,
+              iconSize:
+                  constraints.maxHeight <= 400 ? constraints.maxHeight / 5 : 6,
               icon: Icon(
                 iconData,
                 color: Colors.black,
@@ -51,7 +52,9 @@ Widget itemMenu(
             label,
             style: TextStyle(
                 fontFamily: fontTitleStr,
-                fontSize: constraints.maxHeight / 15,
+                fontSize: constraints.maxHeight <= 400
+                    ? constraints.maxHeight / 10
+                    : 2,
                 color: Colors.white),
           ),
         )

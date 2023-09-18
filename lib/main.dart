@@ -22,22 +22,29 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
         useMaterial3: true,
       ),
-      scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+      scrollBehavior:
+          ScrollConfiguration.of(context).copyWith(scrollbars: false),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Home'),
+      home: LayoutBuilder(builder: (context, constraints) {
+        if (constraints.maxWidth <= 400) {
+          return const MobileHomePage(title: 'Home');
+        } else {
+          return const WebHomePage(title: 'Home');
+        }
+      }),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MobileHomePage extends StatefulWidget {
+  const MobileHomePage({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MobileHomePage> createState() => _MobileHomePage();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MobileHomePage extends State<MobileHomePage> {
   final TextEditingController _controller = TextEditingController();
 
   bool _isNotEmpty = false;
@@ -90,38 +97,97 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Container(
           color: bgColor,
           child: Column(children: [
-            ImageSliderComponent(images: 
-            items.map((item) => item.id).toList()),
+            ImageSliderComponent(images: items.map((item) => item.id).toList()),
             const WelcomeComponent(),
             TitleComponent(title: 'kategory', click: () {}),
             MenuComponent(
-              items: [
-                itemMenu('Alat tulis', Icons.edit_outlined, () {
-                  showAlert(context, 'Alat tulis');
-                }),
-                itemMenu('Alat mandi', Icons.bathtub_outlined, () {
-                  showAlert(context, 'Alat mandi');
-                }),
-                itemMenu('Bahan jahit', Icons.push_pin_outlined, () {
-                  showAlert(context, 'Bahan jahit');
-                }),
-                itemMenu('Masker', Icons.masks_outlined, () {
-                  showAlert(context, 'Masker');
-                }),
-                itemMenu('Rokok', Icons.smoking_rooms_outlined, () {
-                  showAlert(context, 'Rokok');
-                }),
-                itemMenu('Alat cuci', Icons.wash_outlined, () {
-                  showAlert(context, 'Alat cuci');
-                }),
-                itemMenu('Jajanan', Icons.fastfood_outlined, () {
-                  showAlert(context, 'Jajanan');
-                }),
-                itemMenu('Kopi', Icons.coffee_outlined, () {
-                  showAlert(context, 'Kopi');
-                }),
+              items: categories(context),
+            ),
+            TitleComponent(title: 'promo', click: () {}),
+            const PromoComponent(),
+          ]),
+        )));
+  }
+}
+
+class WebHomePage extends StatefulWidget {
+  const WebHomePage({super.key, required this.title});
+  final String title;
+
+  @override
+  State<WebHomePage> createState() => _WebHomePage();
+}
+
+class _WebHomePage extends State<WebHomePage> {
+  final TextEditingController _controller = TextEditingController();
+
+  bool _isNotEmpty = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller.addListener(() {
+      setState(() {
+        _isNotEmpty = _controller.text.isNotEmpty;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: bgColor,
+          title: HeaderComponent(
+            controller: _controller,
+            isNotEmpty: _isNotEmpty,
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 16.0),
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: 18,
+                child: IconButton(
+                    onPressed: () {
+                      showAlert(context, _controller.text);
+                    },
+                    icon: const Icon(
+                      Icons.search,
+                      color: cardColor,
+                    )),
+              ),
+            )
+          ],
+        ),
+        body: SingleChildScrollView(
+            child: Container(
+          color: bgColor,
+          child: Column(children: [
+            Row(
+              children: [
+                Expanded(
+                    child: ImageSliderComponent(
+                        images: items.map((item) => item.id).toList())),
+                Expanded(
+                    child: Column(
+                  children: [
+                    TitleComponent(title: 'kategory', click: () {}),
+                    MenuComponent(
+                      items: categories(context),
+                    ),
+                  ],
+                ))
               ],
             ),
+            const WelcomeComponent(),
             TitleComponent(title: 'promo', click: () {}),
             const PromoComponent(),
           ]),
