@@ -18,10 +18,9 @@ class MenuComponent extends StatelessWidget {
     return GridView.count(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
-      primary: false,
-      padding: const EdgeInsets.all(20),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
+      padding: const EdgeInsets.all(10),
+      crossAxisSpacing: 2,
+      mainAxisSpacing: 2,
       crossAxisCount: 4,
       children: _items,
     );
@@ -40,7 +39,7 @@ Widget itemMenu(
               color: cardColor, borderRadius: BorderRadius.circular(10)),
           child: IconButton(
               onPressed: click,
-              iconSize: 12,
+              //iconSize: 12,
               icon: Icon(
                 iconData,
                 color: Colors.black,
@@ -51,7 +50,9 @@ Widget itemMenu(
           child: Text(
             label,
             style: const TextStyle(
-                fontFamily: fontTitleStr, fontSize: 5, color: Colors.white),
+                fontFamily: fontTitleStr,
+                fontSize: 6,
+                color: Colors.white),
           ),
         )
       ],

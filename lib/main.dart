@@ -105,25 +105,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemMenu('Alat tulis', Icons.edit_outlined, () {
                   showAlert(context, 'Alat tulis');
                 }),
-                itemMenu('Alat tulis', Icons.bathtub_outlined, () {
+                itemMenu('Alat mandi', Icons.bathtub_outlined, () {
                   showAlert(context, 'Alat mandi');
                 }),
-                itemMenu('Alat tulis', Icons.edit_outlined, () {
-                  showAlert(context, 'Benang');
+                itemMenu('Bahan jahit', Icons.push_pin_outlined, () {
+                  showAlert(context, 'Bahan jahit');
                 }),
-                itemMenu('Alat tulis', Icons.masks_outlined, () {
+                itemMenu('Masker', Icons.masks_outlined, () {
                   showAlert(context, 'Masker');
                 }),
-                itemMenu('Alat tulis', Icons.smoking_rooms_outlined, () {
+                itemMenu('Rokok', Icons.smoking_rooms_outlined, () {
                   showAlert(context, 'Rokok');
                 }),
-                itemMenu('Alat tulis', Icons.wash_outlined, () {
+                itemMenu('Alat cuci', Icons.wash_outlined, () {
                   showAlert(context, 'Alat cuci');
                 }),
-                itemMenu('Alat tulis', Icons.fastfood_outlined, () {
+                itemMenu('Jajanan', Icons.fastfood_outlined, () {
                   showAlert(context, 'Jajanan');
                 }),
-                itemMenu('Alat tulis', Icons.coffee_outlined, () {
+                itemMenu('Kopi', Icons.coffee_outlined, () {
                   showAlert(context, 'Kopi');
                 }),
               ],
