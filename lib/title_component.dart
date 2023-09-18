@@ -24,7 +24,7 @@ class TitleComponent extends StatelessWidget {
           Text(
             _title,
             style: const TextStyle(
-                fontFamily: fontDescStr, color: labelColor, fontSize: 12),
+                fontFamily: fontTitleStr, color: labelColor, fontSize: 12),
           ),
           IconButton(
             onPressed: _click,

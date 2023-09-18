@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ud_simbolon/header_component.dart';
 import 'package:ud_simbolon/image_slider_component.dart';
+import 'package:ud_simbolon/menu_component.dart';
+import 'package:ud_simbolon/promo_component.dart';
 import 'package:ud_simbolon/title_component.dart';
 import 'package:ud_simbolon/utils.dart';
 import 'package:ud_simbolon/welcome_component.dart';
@@ -96,8 +98,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ImageSliderComponent(images: images),
             const WelcomeComponent(),
             TitleComponent(title: 'kategory', click: () {}),
-            
-            TitleComponent(title: 'promo', click: () {})
+            const MenuComponent(),
+            TitleComponent(title: 'promo', click: () {}),
+            const PromoComponent(),
           ]),
         ));
   }
