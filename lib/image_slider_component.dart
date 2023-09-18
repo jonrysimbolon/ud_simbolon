@@ -15,23 +15,25 @@ class ImageSliderComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: bgColor,
-      child: ImageSlideshow(
-        width: double.infinity,
-        height: 180,
-        initialPage: 0,
-        indicatorColor: cardColor,
-        indicatorBackgroundColor: textColor,
-        autoPlayInterval: 3000,
-        isLoop: true,
-        children: _images
-            .map((data) => Image.asset(
-                  data,
-                  fit: BoxFit.cover,
-                ))
-            .toList(),
-      ),
-    );
+    return LayoutBuilder(builder: (context, constraints) {
+      return Container(
+        color: bgColor,
+        child: ImageSlideshow(
+          width: double.infinity,
+          height: constraints.maxWidth / 2,
+          initialPage: 0,
+          indicatorColor: cardColor,
+          indicatorBackgroundColor: textColor,
+          autoPlayInterval: 3000,
+          isLoop: true,
+          children: _images
+              .map((data) => Image.asset(
+                    'images/$data.jpg',
+                    fit: BoxFit.cover,
+                  ))
+              .toList(),
+        ),
+      );
+    });
   }
 }

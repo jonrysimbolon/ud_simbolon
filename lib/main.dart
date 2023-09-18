@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ud_simbolon/header_component.dart';
 import 'package:ud_simbolon/image_slider_component.dart';
 import 'package:ud_simbolon/menu_component.dart';
+import 'package:ud_simbolon/model/item.dart';
 import 'package:ud_simbolon/promo_component.dart';
 import 'package:ud_simbolon/title_component.dart';
 import 'package:ud_simbolon/utils.dart';
@@ -40,14 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _controller = TextEditingController();
 
   bool _isNotEmpty = false;
-
-  List<String> images = [
-    'images/imageslider.jpeg',
-    'images/imageslider2.jpeg',
-    'images/imageslider3.jpeg',
-    'images/imageslider4.jpeg',
-    'images/imageslider5.jpeg',
-  ];
 
   @override
   void initState() {
@@ -97,7 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Container(
           color: bgColor,
           child: Column(children: [
-            ImageSliderComponent(images: images),
+            ImageSliderComponent(images: 
+            items.map((item) => item.id).toList()),
             const WelcomeComponent(),
             TitleComponent(title: 'kategory', click: () {}),
             MenuComponent(

@@ -9,9 +9,8 @@ class MenuComponent extends StatelessWidget {
   const MenuComponent({
     Key? key,
     required List<Widget> items,
-  }) : 
-  _items= items,
-  super(key: key);
+  })  : _items = items,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +27,11 @@ class MenuComponent extends StatelessWidget {
 }
 
 Widget itemMenu(
-    String label,
-    IconData iconData,
-    Function() click,
-  ) {
+  String label,
+  IconData iconData,
+  Function() click,
+) {
+  return LayoutBuilder(builder: (context, constraints) {
     return Column(
       children: [
         Container(
@@ -39,7 +39,7 @@ Widget itemMenu(
               color: cardColor, borderRadius: BorderRadius.circular(10)),
           child: IconButton(
               onPressed: click,
-              //iconSize: 12,
+              iconSize: constraints.maxHeight / 4,
               icon: Icon(
                 iconData,
                 color: Colors.black,
@@ -49,12 +49,13 @@ Widget itemMenu(
           padding: const EdgeInsets.only(top: 5),
           child: Text(
             label,
-            style: const TextStyle(
+            style: TextStyle(
                 fontFamily: fontTitleStr,
-                fontSize: 6,
+                fontSize: constraints.maxHeight / 15,
                 color: Colors.white),
           ),
         )
       ],
     );
-  }
+  });
+}
