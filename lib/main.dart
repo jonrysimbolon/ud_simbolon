@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           ScrollConfiguration.of(context).copyWith(scrollbars: false),
       debugShowCheckedModeBanner: false,
       home: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth <= 400) {
+        if (constraints.maxWidth <= 500) {
           return const MobileHomePage(title: 'Home');
         } else {
           return const WebHomePage(title: 'Home');
