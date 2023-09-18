@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 const bgColor = Color(0xFF80C764);
 const cardColor = Color(0xFF72BD55);
 const textColor = Color(0xFF9F9D9D);
+const labelColor = Color(0xFFEDEAEA);
+const welcomeColor = Color(0xFF22361B);
 
 const fontTitleStr = 'Staatliches';
 const fontDescStr = 'Oxygen';
