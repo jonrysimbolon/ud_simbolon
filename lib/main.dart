@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
         useMaterial3: true,
       ),
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Home'),
     );
@@ -92,16 +93,44 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-        body: Container(
+        body: SingleChildScrollView(
+            child: Container(
           color: bgColor,
           child: Column(children: [
             ImageSliderComponent(images: images),
             const WelcomeComponent(),
             TitleComponent(title: 'kategory', click: () {}),
-            const MenuComponent(),
+            MenuComponent(
+              items: [
+                itemMenu('Alat tulis', Icons.edit_outlined, () {
+                  showAlert(context, 'Alat tulis');
+                }),
+                itemMenu('Alat tulis', Icons.bathtub_outlined, () {
+                  showAlert(context, 'Alat mandi');
+                }),
+                itemMenu('Alat tulis', Icons.edit_outlined, () {
+                  showAlert(context, 'Benang');
+                }),
+                itemMenu('Alat tulis', Icons.masks_outlined, () {
+                  showAlert(context, 'Masker');
+                }),
+                itemMenu('Alat tulis', Icons.smoking_rooms_outlined, () {
+                  showAlert(context, 'Rokok');
+                }),
+                itemMenu('Alat tulis', Icons.wash_outlined, () {
+                  showAlert(context, 'Alat cuci');
+                }),
+                itemMenu('Alat tulis', Icons.fastfood_outlined, () {
+                  showAlert(context, 'Jajanan');
+                }),
+                itemMenu('Alat tulis', Icons.coffee_outlined, () {
+                  showAlert(context, 'Kopi');
+                }),
+              ],
+            ),
             TitleComponent(title: 'promo', click: () {}),
             const PromoComponent(),
           ]),
-        ));
+        )));
   }
 }
