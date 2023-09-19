@@ -16,8 +16,8 @@ class PromoComponent extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           final promo = promos[index];
           return itemPromo(
+            promo.id,
             promo.title,
-            promo.pathImg,
             () => {showAlert(context, promo.title)},
           );
         },
@@ -27,8 +27,8 @@ class PromoComponent extends StatelessWidget {
 }
 
 Widget itemPromo(
+  String id,
   String title,
-  String pathImg,
   Function() click,
 ) {
   return InkWell(
@@ -47,7 +47,7 @@ Widget itemPromo(
                   topRight: Radius.circular(10),
                 ),
                 child: Image.asset(
-                  pathImg,
+                  'images/$id.jpg',
                   fit: BoxFit.cover,
                 ),
               ),

@@ -12,9 +12,8 @@ class ImageSliderComponent extends StatelessWidget {
     Key? key,
     required List<String> images,
     required bool isWeb,
-  })  :
-  _isWeb = isWeb,
-   _images = images,
+  })  : _isWeb = isWeb,
+        _images = images,
         super(key: key);
 
   @override
@@ -31,13 +30,18 @@ class ImageSliderComponent extends StatelessWidget {
           autoPlayInterval: 3000,
           isLoop: true,
           children: _images
-              .map((data) => ClipRRect(
-                    borderRadius: _isWeb
-                        ? const BorderRadius.all(Radius.circular(10))
-                        : const BorderRadius.all(Radius.circular(0)),
-                    child: Image.asset(
-                      'images/$data.jpg',
-                      fit: BoxFit.cover,
+              .map((data) => InkWell(
+                    onTap: () {
+                      showAlert(context, data);
+                    },
+                    child: ClipRRect(
+                      borderRadius: _isWeb
+                          ? const BorderRadius.all(Radius.circular(10))
+                          : const BorderRadius.all(Radius.circular(0)),
+                      child: Image.asset(
+                        'images/$data.jpg',
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ))
               .toList(),

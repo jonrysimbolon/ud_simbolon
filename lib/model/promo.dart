@@ -1,17 +1,20 @@
 class Promo {
+  String id;
   String title;
-  String pathImg;
 
-  Promo({required this.title, required this.pathImg});
+  Promo({
+    required this.id,
+    required this.title, 
+    });
 }
 
 var promos = [
   Promo(
+    id: 'PR-01',
     title: 'Beli 3 buku gratis 1 pulpen',
-    pathImg: 'images/promo01.jpg',
   ),
   Promo(
+    id: 'PR-02',
     title: 'Beli 10 buku gratis 2 buku',
-    pathImg: 'images/promo02.jpg',
   ),
 ];
