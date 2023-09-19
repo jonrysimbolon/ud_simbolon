@@ -3,17 +3,11 @@ import 'package:ud_simbolon/item_menu.dart';
 import 'package:ud_simbolon/model/category.dart';
 import 'package:ud_simbolon/utils.dart';
 
-class MenuComponent extends StatefulWidget {
+class MenuComponent extends StatelessWidget {
 
   const MenuComponent({
     Key? key,
   })  :super(key: key);
-
-  @override
-  State<MenuComponent> createState() => _MenuComponentState();
-}
-
-class _MenuComponentState extends State<MenuComponent> {
 
   @override
   Widget build(BuildContext context) {
