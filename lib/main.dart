@@ -98,14 +98,12 @@ class _MobileHomePage extends State<MobileHomePage> {
           color: bgColor,
           child: Column(children: [
             ImageSliderComponent(
-              images: items.map((item) => item.id).toList(),
+              data: items,
               isWeb: false,
               ),
             const WelcomeComponent(),
             TitleComponent(title: 'kategory', click: () {}),
-            MenuComponent(
-              items: categories(context),
-            ),
+            MenuComponent(),
             TitleComponent(title: 'promo', click: () {}),
             const PromoComponent(),
           ]),
@@ -181,16 +179,14 @@ class _WebHomePage extends State<WebHomePage> {
                 ),
                 Expanded(
                     child: ImageSliderComponent(
-                        images: items.map((item) => item.id).toList(),
+                        data: items,
                         isWeb: true,)
                         ),
                 Expanded(
                     child: Column(
                   children: [
                     TitleComponent(title: 'kategory', click: () {}),
-                    MenuComponent(
-                      items: categories(context),
-                    ),
+                    MenuComponent(),
                   ],
                 ))
               ],
