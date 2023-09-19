@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:ud_simbolon/detail_item_screen.dart';
 import 'package:ud_simbolon/model/item.dart';
 
 import 'package:ud_simbolon/utils.dart';
@@ -34,13 +35,13 @@ class ImageSliderComponent extends StatelessWidget {
           children: _data
               .map((data) => InkWell(
                 onTap:() {
-                  /*Navigator.push(context, MaterialPageRoute(
+                  Navigator.push(context, MaterialPageRoute(
               builder: (context) {
                 return DetailItemScreen(
-                  data: data,
+                  item: data,
                 );
               },
-            ));*/
+            ));
                 },
                 child: ClipRRect(
                     borderRadius: _isWeb

@@ -103,7 +103,7 @@ class _MobileHomePage extends State<MobileHomePage> {
               ),
             const WelcomeComponent(),
             TitleComponent(title: 'kategory', click: () {}),
-            MenuComponent(),
+            const MenuComponent(),
             TitleComponent(title: 'promo', click: () {}),
             const PromoComponent(),
           ]),
@@ -186,7 +186,7 @@ class _WebHomePage extends State<WebHomePage> {
                     child: Column(
                   children: [
                     TitleComponent(title: 'kategory', click: () {}),
-                    MenuComponent(),
+                    const MenuComponent(),
                   ],
                 ))
               ],

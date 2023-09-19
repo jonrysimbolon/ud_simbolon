@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ud_simbolon/model/item.dart';
+import 'package:ud_simbolon/utils.dart';
 
 class DetailItemScreen extends StatelessWidget {
   final Item _item;
@@ -9,12 +10,18 @@ class DetailItemScreen extends StatelessWidget {
   const DetailItemScreen({
     Key? key,
     required Item item,
-  }) : 
-  _item= item,
-  super(key: key);
+  })  : _item = item,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Center();
+    return Scaffold(
+        appBar: AppBar(
+            backgroundColor: bgColor,
+            title: Text(
+              _item.name,
+              style: const TextStyle(fontFamily: fontTitleStr),
+            )),
+        body: const Center());
   }
 }
