@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'UD. SIMBOLON',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
+        colorScheme: ColorScheme.fromSeed(seedColor: bgColor),
         useMaterial3: true,
       ),
       scrollBehavior:
@@ -83,7 +83,7 @@ class _MobileHomePage extends State<MobileHomePage> {
                 radius: 18,
                 child: IconButton(
                     onPressed: () {
-                      showAlert(context, _controller.text);
+                      prosesSearch(context, _controller.text);
                     },
                     icon: const Icon(
                       Icons.search,
@@ -98,9 +98,9 @@ class _MobileHomePage extends State<MobileHomePage> {
           color: bgColor,
           child: Column(children: [
             ImageSliderComponent(
-              data: items,
+              data: bookItems,
               isWeb: false,
-              ),
+            ),
             const WelcomeComponent(),
             TitleComponent(title: 'kategory', click: () {}),
             const MenuComponent(),
@@ -158,7 +158,7 @@ class _WebHomePage extends State<WebHomePage> {
                 radius: 18,
                 child: IconButton(
                     onPressed: () {
-                      showAlert(context, _controller.text);
+                      prosesSearch(context, _controller.text);
                     },
                     icon: const Icon(
                       Icons.search,
@@ -179,9 +179,9 @@ class _WebHomePage extends State<WebHomePage> {
                 ),
                 Expanded(
                     child: ImageSliderComponent(
-                        data: items,
-                        isWeb: true,)
-                        ),
+                  data: bookItems,
+                  isWeb: true,
+                )),
                 Expanded(
                     child: Column(
                   children: [

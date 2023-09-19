@@ -15,7 +15,7 @@ class Item {
       required this.price});
 }
 
-var items = [
+var bookItems = [
   Item(
       id: '01-01',
       name: 'Buku tulis isi 30',
