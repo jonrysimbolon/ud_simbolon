@@ -6,11 +6,15 @@ import 'package:ud_simbolon/utils.dart';
 
 class ImageSliderComponent extends StatelessWidget {
   final List<String> _images;
+  final bool _isWeb;
 
   const ImageSliderComponent({
     Key? key,
     required List<String> images,
-  })  : _images = images,
+    required bool isWeb,
+  })  :
+  _isWeb = isWeb,
+   _images = images,
         super(key: key);
 
   @override
@@ -27,9 +31,14 @@ class ImageSliderComponent extends StatelessWidget {
           autoPlayInterval: 3000,
           isLoop: true,
           children: _images
-              .map((data) => Image.asset(
-                    'images/$data.jpg',
-                    fit: BoxFit.cover,
+              .map((data) => ClipRRect(
+                    borderRadius: _isWeb
+                        ? const BorderRadius.all(Radius.circular(10))
+                        : const BorderRadius.all(Radius.circular(0)),
+                    child: Image.asset(
+                      'images/$data.jpg',
+                      fit: BoxFit.cover,
+                    ),
                   ))
               .toList(),
         ),

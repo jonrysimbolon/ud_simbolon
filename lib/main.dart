@@ -97,7 +97,10 @@ class _MobileHomePage extends State<MobileHomePage> {
             child: Container(
           color: bgColor,
           child: Column(children: [
-            ImageSliderComponent(images: items.map((item) => item.id).toList()),
+            ImageSliderComponent(
+              images: items.map((item) => item.id).toList(),
+              isWeb: false,
+              ),
             const WelcomeComponent(),
             TitleComponent(title: 'kategory', click: () {}),
             MenuComponent(
@@ -178,7 +181,9 @@ class _WebHomePage extends State<WebHomePage> {
                 ),
                 Expanded(
                     child: ImageSliderComponent(
-                        images: items.map((item) => item.id).toList())),
+                        images: items.map((item) => item.id).toList(),
+                        isWeb: true,)
+                        ),
                 Expanded(
                     child: Column(
                   children: [
