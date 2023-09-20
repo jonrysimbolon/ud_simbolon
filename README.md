@@ -1,16 +1,18 @@
-# ud_simbolon
+# Submission for dicoding course with flutter
+`Flutter pemula`
 
-A new Flutter project.
+# Preview mobile
+<p align="center">
+  <img src="/images/mobile_home.png" width="250" align="left"  alt="Splash Screen">
+  <img src="/images/mobile_list_item.png" width="250" align="center" alt="Home Screen">
+  <img src="/images/mobile_detail_item.png" width="250" align="right"  alt="Detail Screen">
+  <img src="/images/mobile_detail_promo.png" width="250" align="right"  alt="Detail Screen">
+</p>
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Preview web
+<p align="center">
+  <img src="/images/web_home.png" width="250" align="left"  alt="Splash Screen">
+  <img src="/images/web_list_item.png" width="250" align="center" alt="Home Screen">
+  <img src="/images/web_detail_item.png" width="250" align="right"  alt="Detail Screen">
+  <img src="/images/web_detail_promo.png" width="250" align="right"  alt="Detail Screen">
+</p>
