@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ud_simbolon/model/item.dart';
+import 'package:ud_simbolon/my_navigation.dart';
 import 'package:ud_simbolon/utils.dart';
 
 class DetailItemScreen extends StatelessWidget {
@@ -50,7 +51,7 @@ class HeaderItem extends StatelessWidget {
                   backgroundColor: cardColorForBackgroundIcon,
                   child: IconButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        back(context: context);
                       },
                       icon: const Icon(Icons.arrow_back)),
                 ),
@@ -137,8 +138,7 @@ class FooterItem extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            //Navigator.pop(context);
-            Navigator.of(context).popUntil((route) => route.isFirst);
+            goToHome(context: context);
           },
           child: const Padding(
             padding: EdgeInsets.only(left: 10, right: 10, top: 8, bottom: 8),

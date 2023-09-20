@@ -5,6 +5,14 @@ import 'package:ud_simbolon/model/item.dart';
 import 'package:ud_simbolon/model/promo.dart';
 import 'package:ud_simbolon/promo_item_screen.dart';
 
+void goToHome({required BuildContext context}) {
+  Navigator.of(context).popUntil((route) => route.isFirst);
+}
+
+void back({required BuildContext context}) {
+  Navigator.pop(context);
+}
+
 void goToDetailItem({required BuildContext context, required Item data}) {
   Navigator.push(context, MaterialPageRoute(
     builder: (context) {
