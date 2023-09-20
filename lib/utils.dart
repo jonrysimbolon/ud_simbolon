@@ -62,6 +62,6 @@ void showAlert(
 void showAlertSoon(
   BuildContext context,
 ) {
-  var msg = 'Yahh ketauan wkwk, janji gw bg, soon :D';
+  var msg = 'Next course kali ya bg, pingang gw sakit';
   showAlert(context, msg);
 }

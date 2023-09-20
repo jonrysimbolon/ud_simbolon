@@ -27,10 +27,9 @@ class TitleComponent extends StatelessWidget {
                 fontFamily: fontTitleStr, color: labelColor, fontSize: 12),
           ),
           IconButton(
-            hoverColor: bgColor,
             onPressed: _click,
             icon: const Icon(Icons.more_horiz),
-            color: bgColor,
+            color: Colors.black,
           )
         ],
       ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ud_simbolon/header_component.dart';
-import 'package:ud_simbolon/image_slider_component.dart';
-import 'package:ud_simbolon/menu_component.dart';
+import 'package:ud_simbolon/home_screen/header_component.dart';
+import 'package:ud_simbolon/home_screen/image_slider_component.dart';
+import 'package:ud_simbolon/home_screen/menu_component.dart';
 import 'package:ud_simbolon/model/item.dart';
-import 'package:ud_simbolon/promo_component.dart';
-import 'package:ud_simbolon/title_component.dart';
+import 'package:ud_simbolon/home_screen/promo_component.dart';
+import 'package:ud_simbolon/home_screen/title_component.dart';
 import 'package:ud_simbolon/utils.dart';
-import 'package:ud_simbolon/welcome_component.dart';
+import 'package:ud_simbolon/home_screen/welcome_component.dart';
 
 void main() {
   runApp(const MyApp());

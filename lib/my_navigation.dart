@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ud_simbolon/detail_item_screen.dart';
-import 'package:ud_simbolon/list_item_barang_screen.dart';
+import 'package:ud_simbolon/detail_item/detail_item_screen.dart';
+import 'package:ud_simbolon/list_kategory/list_item_barang_screen.dart';
 import 'package:ud_simbolon/model/item.dart';
 import 'package:ud_simbolon/model/promo.dart';
-import 'package:ud_simbolon/promo_item_screen.dart';
+import 'package:ud_simbolon/detail_promo/promo_item_screen.dart';
 
 void goToHome({required BuildContext context}) {
   Navigator.of(context).popUntil((route) => route.isFirst);
