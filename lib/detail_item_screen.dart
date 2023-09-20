@@ -22,7 +22,7 @@ class DetailItemScreen extends StatelessWidget {
                 child: Column(children: [
       HeaderItem(item: _item),
       BodyItem(item: _item),
-      FooterItem(item: _item)
+      const FooterItem()
     ]))));
   }
 }
@@ -123,8 +123,7 @@ class BodyItem extends StatelessWidget {
 }
 
 class FooterItem extends StatelessWidget {
-  final Item item;
-  const FooterItem({super.key, required this.item});
+  const FooterItem({super.key});
 
   @override
   Widget build(BuildContext context) {
