@@ -102,9 +102,15 @@ class _MobileHomePage extends State<MobileHomePage> {
               isWeb: false,
             ),
             const WelcomeComponent(),
-            TitleComponent(title: 'kategory', click: () {}),
+            TitleComponent(
+                title: 'kategory',
+                click: () {
+                  showAlertSoon(context);
+                }),
             const MenuComponent(),
-            TitleComponent(title: 'promo', click: () {}),
+            TitleComponent(title: 'promo', click: () {
+              showAlertSoon(context);
+            }),
             const PromoComponent(),
           ]),
         )));
@@ -185,14 +191,18 @@ class _WebHomePage extends State<WebHomePage> {
                 Expanded(
                     child: Column(
                   children: [
-                    TitleComponent(title: 'kategory', click: () {}),
+                    TitleComponent(title: 'kategory', click: () {
+                      showAlertSoon(context);
+                    }),
                     const MenuComponent(),
                   ],
                 ))
               ],
             ),
             const WelcomeComponent(),
-            TitleComponent(title: 'promo', click: () {}),
+            TitleComponent(title: 'promo', click: () {
+              showAlertSoon(context);
+            }),
             const PromoComponent(),
           ]),
         )));

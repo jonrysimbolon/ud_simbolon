@@ -13,7 +13,6 @@ const fontDescStr = 'Oxygen';
 
 String changeToRupiah(num data) => CurrencyFormat.convertToIdr(data, 2);
 
-
 class CurrencyFormat {
   static String convertToIdr(dynamic number, int decimalDigit) {
     NumberFormat currencyFormatter = NumberFormat.currency(
@@ -58,4 +57,11 @@ void showAlert(
       );
     },
   );
+}
+
+void showAlertSoon(
+  BuildContext context,
+) {
+  var msg = 'Yahh ketauan wkwk, janji gw bg, soon :D';
+  showAlert(context, msg);
 }
