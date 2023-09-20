@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:ud_simbolon/detail_item/web_ui.dart';
 
 import 'package:ud_simbolon/model/item.dart';
 import 'package:ud_simbolon/my_navigation.dart';
@@ -16,14 +17,28 @@ class DetailItemScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-            child: SingleChildScrollView(
-                child: Column(children: [
-      HeaderItem(item: _item),
-      BodyItem(item: _item),
+    return Scaffold(body: SafeArea(child: SingleChildScrollView(
+        child: LayoutBuilder(builder: (context, constraints) {
+      if (constraints.maxWidth <= 500) {
+        return MobileDetailItemPage(item: _item);
+      } else {
+        return WebDetailItemPage(item: _item);
+      }
+    }))));
+  }
+}
+
+class MobileDetailItemPage extends StatelessWidget {
+  final Item item;
+  const MobileDetailItemPage({super.key, required this.item});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: [
+      HeaderItem(item: item),
+      BodyItem(item: item),
       const FooterItem()
-    ]))));
+    ]);
   }
 }
 
