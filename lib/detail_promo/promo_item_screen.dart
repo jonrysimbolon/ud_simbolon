@@ -15,26 +15,34 @@ class DetailPromoItemScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-            child: SingleChildScrollView(
-                child: Column(children: [
-      HeaderPromo(item: _item),
-      BodyPromo(item: _item),
-      const FooterItem()
-    ]))));
+    return Scaffold(body: SafeArea(child: SingleChildScrollView(
+        child: LayoutBuilder(builder: (context, constraints) {
+      var isNotWeb = true;
+      if (constraints.maxWidth >= 600) {
+        isNotWeb = false;
+      } else {
+        isNotWeb = true;
+      }
+      return Column(children: [
+        HeaderPromo(item: _item, isNotWeb: isNotWeb),
+        BodyPromo(item: _item),
+        const FooterItem()
+      ]);
+    }))));
   }
 }
 
 class HeaderPromo extends StatelessWidget {
   final Promo item;
-  const HeaderPromo({super.key, required this.item});
+  final bool isNotWeb;
+  const HeaderPromo({super.key, required this.item, required this.isNotWeb});
 
   @override
   Widget build(BuildContext context) => Stack(
         children: [
-          AspectRatio(
-            aspectRatio: 2 / 1,
+          SizedBox(
+            width: double.infinity,
+            height: 200,
             child: Image.asset(
               'images/${item.id}.jpg',
               fit: BoxFit.cover,
@@ -43,17 +51,19 @@ class HeaderPromo extends StatelessWidget {
           SafeArea(
               child: Row(
             children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: CircleAvatar(
-                  backgroundColor: cardColorForBackgroundIcon,
-                  child: IconButton(
-                      onPressed: () {
-                        back(context: context);
-                      },
-                      icon: const Icon(Icons.arrow_back)),
-                ),
-              ),
+              isNotWeb
+                  ? Container(
+                      padding: const EdgeInsets.all(10),
+                      child: CircleAvatar(
+                        backgroundColor: cardColorForBackgroundIcon,
+                        child: IconButton(
+                            onPressed: () {
+                              back(context: context);
+                            },
+                            icon: const Icon(Icons.arrow_back)),
+                      ),
+                    )
+                  : const SizedBox()
             ],
           ))
         ],
