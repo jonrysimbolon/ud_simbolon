@@ -22,7 +22,6 @@ class WelcomeComponent extends StatelessWidget {
                     'Welcome to UD. Simbolon',
                     style: TextStyle(
                         fontFamily: fontTitleStr, color: welcomeColor),
-                    selectionColor: Colors.blue,
                   ),
                 ],
               ))),

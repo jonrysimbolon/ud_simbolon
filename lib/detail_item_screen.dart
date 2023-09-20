@@ -18,13 +18,11 @@ class DetailItemScreen extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
             child: SingleChildScrollView(
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-          HeaderItem(item: _item),
-          BodyItem(item: _item),
-          FooterItem(item: _item)
-        ]))));
+                child: Column(children: [
+      HeaderItem(item: _item),
+      BodyItem(item: _item),
+      FooterItem(item: _item)
+    ]))));
   }
 }
 
@@ -43,21 +41,37 @@ class HeaderItem extends StatelessWidget {
             ),
           ),
           SafeArea(
-              child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: cardColorForBackgroundIcon,
-                        child: IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: const Icon(Icons.arrow_back)),
-                      )
-                    ],
-                  )))
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                child: CircleAvatar(
+                  backgroundColor: cardColorForBackgroundIcon,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.arrow_back)),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: cardColorForBackgroundIcon,
+                    borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        topLeft: Radius.circular(20))),
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  item.category,
+                  style: const TextStyle(
+                      fontSize: 12,
+                      fontFamily: fontTitleStr,
+                      color: Colors.black),
+                ),
+              )
+            ],
+          ))
         ],
       );
 }
@@ -86,15 +100,13 @@ class BodyItem extends StatelessWidget {
                 style: const TextStyle(
                     color: Colors.black,
                     fontSize: 18.0,
-                    fontFamily: fontTitleStr),
+                    fontFamily: fontDescStr),
               )
             ],
           ),
-          Text('Rp. ${item.price}',
+          Text(changeToRupiah(item.price),
               style: const TextStyle(
-                  color: welcomeColor,
-                  fontSize: 20.0,
-                  fontFamily: fontTitleStr)),
+                  color: Colors.red, fontSize: 20.0, fontFamily: fontDescStr)),
           Padding(
             padding: const EdgeInsets.only(top: 12),
             child: Text(item.desc,
@@ -124,13 +136,19 @@ class FooterItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            //Navigator.pop(context);
+            Navigator.of(context).popUntil((route) => route.isFirst);
+          },
           child: const Padding(
             padding: EdgeInsets.only(left: 10, right: 10, top: 8, bottom: 8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(),
+                Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                ),
                 Text(
                   "Home",
                   style:
@@ -138,7 +156,7 @@ class FooterItem extends StatelessWidget {
                 ),
                 Icon(
                   Icons.arrow_forward,
-                  color: Colors.black,
+                  color: cardColor,
                 )
               ],
             ),
