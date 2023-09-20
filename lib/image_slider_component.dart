@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'package:ud_simbolon/detail_item_screen.dart';
 import 'package:ud_simbolon/model/item.dart';
 import 'package:ud_simbolon/my_navigation.dart';
 

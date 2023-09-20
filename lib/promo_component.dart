@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ud_simbolon/model/promo.dart';
 import 'package:ud_simbolon/my_navigation.dart';
-import 'package:ud_simbolon/promo_item_screen.dart';
 import 'package:ud_simbolon/utils.dart';
 
 class PromoComponent extends StatelessWidget {

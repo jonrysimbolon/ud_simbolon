@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ud_simbolon/menu_component.dart';
 
 const bgColor = Color(0xFF80C764);
 const cardColor = Color(0xFF72BD55);
+var cardColorForBackgroundIcon = cardColor.withOpacity(0.7);
 const textColor = Color(0xFF9F9D9D);
 const labelColor = Color(0xFFEDEAEA);
 const welcomeColor = Color(0xFF22361B);
